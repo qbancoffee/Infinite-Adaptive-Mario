@@ -31,7 +31,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 {
 	private static final long serialVersionUID = 739318775993206607L;
 
-	public static final int TICKS_PER_SECOND = 27;
+	public static final int TICKS_PER_SECOND = 24;
 
 	public static final int EVOLVE_VERSION = 4;
 	public static final int GAME_VERSION = 4;
@@ -246,7 +246,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 
 				if (useScale2x)
 				{
-					g.drawImage(scale2x.scale(image), 0, 0, null);
+					g.drawImage(scale2x.scale(image), 0, 0, screenSize.width, screenSize.height, null);
 				}
 				else
 				{
