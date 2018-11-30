@@ -330,6 +330,7 @@ public class LevelScene extends Scene implements SpriteContext
 
 	private DecimalFormat df = new DecimalFormat("00");
 	private DecimalFormat df2 = new DecimalFormat("000");
+	private DecimalFormat dfChallenge = new DecimalFormat("00.00");
 
 	@Override
 	public void render(Graphics g, float alpha)
@@ -377,13 +378,15 @@ public class LevelScene extends Scene implements SpriteContext
 		////////////END OF SPRITE RENDERING
 
 		drawStringDropShadow(g, "MARIO " + df.format(Mario.lives), 0, 0, 7);
+		drawStringDropShadow(g, "CHALLENGE ", 10, 0, 7);
+		drawStringDropShadow(g, " " + dfChallenge.format(100*CustomizedLevel.challenge), 10, 1, 7);
 		//        drawStringDropShadow(g, "00000000", 0, 1, 7);
 
-		drawStringDropShadow(g, "COIN", 14, 0, 7);
-		drawStringDropShadow(g, " "+df.format(Mario.coins), 14, 1, 7);
+		drawStringDropShadow(g, "COIN", 22, 0, 7);
+		drawStringDropShadow(g, " "+df.format(Mario.coins), 22, 1, 7);
 
-		drawStringDropShadow(g, "WORLD", 24, 0, 7);
-		drawStringDropShadow(g, " "+Mario.levelString, 24, 1, 7);
+		drawStringDropShadow(g, "WORLD", 29, 0, 7);
+		drawStringDropShadow(g, " "+Mario.levelString, 29, 1, 7);
 
 		drawStringDropShadow(g, "TIME", 35, 0, 7);
 		int time = (timeLeft+15-1)/15;

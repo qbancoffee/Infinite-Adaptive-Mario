@@ -8,7 +8,9 @@ import dk.itu.mario.MarioInterface.GamePlay;
 import dk.itu.mario.MarioInterface.LevelInterface;
 import dk.itu.mario.engine.sprites.Mario;
 import dk.itu.mario.engine.sprites.SpriteTemplate;
+import dk.itu.mario.engine.Globals;
 import dk.itu.mario.level.Level;
+
 /**
  * A Probabilistic Multi-Pass Level Generator.
  *
@@ -73,10 +75,12 @@ public class CustomizedLevel extends Level implements LevelInterface {
 	public static double challenge = 0.5;
 	public static int levelLength;
 
+    
 	public static void decreaseChallenge(int distance) {
 		double complete = ((double)distance)/((double)levelLength);
 		challenge -= 0.04*(1 - complete);
 		challenge = Math.max(challenge, 0);
+		Globals.challenge=challenge;
 		System.out.println("Challenge: " + challenge);
 	}
 
@@ -84,7 +88,7 @@ public class CustomizedLevel extends Level implements LevelInterface {
 		System.out.println(time);
 
 		challenge += (0.05 + 0.0005*time);
-
+		Globals.challenge=challenge;
 		System.out.println("Challenge: " + challenge);
 	}
 
@@ -108,7 +112,7 @@ public class CustomizedLevel extends Level implements LevelInterface {
 	public CustomizedLevel(int width, int height, long seed, int difficulty, int type, GamePlay playerMetrics) {
 		super(width, height);
 		levelLength = width;
-
+        Globals.challenge=challenge;
 		Mario.levelString = "" + (int)(challenge*100.0);
 
 		CHANCE_BLOCK_POWER_UP = 0.1 + challenge*challenge*0.0; 	// 0.1

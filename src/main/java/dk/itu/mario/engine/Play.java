@@ -10,14 +10,17 @@ public class Play {
 	{
 
 		JFrame frame = new JFrame("Mario Experience Showcase");
-		MarioComponent mario = new MarioComponent(640, 480,false);
+        //frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+        frame.setUndecorated(true);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		MarioComponent mario = new MarioComponent(screenSize.width, screenSize.height,true);
 
 		frame.setContentPane(mario);
 		frame.setResizable(false);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		
 		frame.setLocation((screenSize.width-frame.getWidth())/2, (screenSize.height-frame.getHeight())/2);
 
 		frame.setVisible(true);

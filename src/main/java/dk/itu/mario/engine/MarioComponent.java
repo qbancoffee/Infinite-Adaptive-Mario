@@ -16,6 +16,9 @@ import java.util.Random;
 import javax.sound.sampled.LineUnavailableException;
 import javax.swing.JComponent;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 import benweber.CustomizedLevel;
 import dk.itu.mario.engine.sonar.FakeSoundEngine;
 import dk.itu.mario.engine.sonar.SonarSoundEngine;
@@ -28,7 +31,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 {
 	private static final long serialVersionUID = 739318775993206607L;
 
-	public static final int TICKS_PER_SECOND = 24;
+	public static final int TICKS_PER_SECOND = 27;
 
 	public static final int EVOLVE_VERSION = 4;
 	public static final int GAME_VERSION = 4;
@@ -93,14 +96,22 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 		{
 			scene.toggleKey(Mario.KEY_DOWN, isPressed);
 		}
-		else if (keyCode == KeyEvent.VK_SPACE)
+//		else if (keyCode == KeyEvent.VK_SPACE)
+//		{
+//			scene.toggleKey(Mario.KEY_SPEED, isPressed);
+//		}
+		else if (keyCode == KeyEvent.VK_C)
 		{
 			scene.toggleKey(Mario.KEY_SPEED, isPressed);
 		}
-		else if (keyCode == KeyEvent.VK_UP)
+		else if (keyCode == KeyEvent.VK_V)
 		{
 			scene.toggleKey(Mario.KEY_JUMP, isPressed);
 		}
+//		else if (keyCode == KeyEvent.VK_UP)
+//		{
+//			scene.toggleKey(Mario.KEY_JUMP, isPressed);
+//		}		
 		else if (keyCode == KeyEvent.VK_ENTER)
 		{
 			scene.toggleKey(Mario.KEY_ENTER, isPressed);
@@ -147,7 +158,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 	{
 
 		graphicsConfiguration = getGraphicsConfiguration();
-
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		Art.init(graphicsConfiguration, sound);
 
 		VolatileImage image = createVolatileImage(320, 240);
@@ -239,7 +250,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 				}
 				else
 				{
-					g.drawImage(image, 0, 0, 640, 480, null);
+					g.drawImage(image, 0, 0, screenSize.width, screenSize.height, null);
 
 				}
 			}
@@ -386,6 +397,7 @@ public class MarioComponent extends JComponent implements Runnable, KeyListener,
 	 public Dimension getPreferredSize(){
 		 return new Dimension(width,height);
 	 }
+
 
 
 

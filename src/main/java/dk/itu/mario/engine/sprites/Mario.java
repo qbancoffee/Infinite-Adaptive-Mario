@@ -684,7 +684,7 @@ public class Mario extends Sprite
 
 		if (large)
 		{
-			world.paused = true;
+			world.paused = false;
 			powerUpTime = -3 * 6;
 			world.sound.play(Art.samples[Art.SAMPLE_MARIO_POWER_DOWN], this, 1, 1, 1);
 			if (fire)
