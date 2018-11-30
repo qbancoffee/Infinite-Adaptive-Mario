@@ -1,6 +1,6 @@
 # Infinite Adaptive Mario
 
-Maven-ized version of Infinite Adaptive Mario.
+A full screen, Maven-ized version of Infinite Adaptive Mario.
 
 -----------------------------------------------
 **COMPILING AND USING Infinite Adaptive Mario**
@@ -55,6 +55,11 @@ java -jar iam.jar
 ```
 
 Use the arrow keys to move left and right. Hold the "c" button to run faster and press "v" to jump.
+
+
+Use Oracle's JRE to run IAM to have a nicer looking experience. For some reason there are weird issues
+when the level scrolls when run with OpenJDK. I don't know enough about how this works to fix that.
+
 
 ## Home page
 
